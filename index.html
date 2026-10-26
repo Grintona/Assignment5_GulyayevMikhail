@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 5 - JavaScript Basics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/task1.js" defer></script>
+  <script src="js/task2.js" defer></script>
+  <script src="js/task3.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Assignment 5</h1>
+    <nav>
+      <a href="#game">Task 1</a>
+      <a href="#board">Task 2</a>
+      <a href="#creator">Task 3</a>
+    </nav>
+  </header>
+
+  <main>
+       <section class="task" id="game">
+      <p class="eyebrow">Task 1</p>
+      <h2>Higher or Lower</h2>
+      <p>Guess whether the next price will be higher or lower.</p>
+
+      <div class="game-layout">
+        <div class="game-panel">
+          <p>Status: <strong id="game-status">ROUND ACTIVE</strong></p>
+          <p>Round: <strong id="round-number">1</strong></p>
+          <p>Best streak: <strong id="best-streak">0</strong></p>
+          <p class="current-price" id="current-price">48</p>
+          <p>credits</p>
+          <p id="game-message" aria-live="polite">Will the next one be higher or lower?</p>
+
+          <div id="game-actions">
+            <button class="choice-button" data-guess="higher">Higher</button>
+            <button class="choice-button" data-guess="lower">Lower</button>
+          </div>
+
+          <button class="restart-button hidden" id="restart-game">Start again</button>
+        </div>
+
+        <aside class="info-box">
+          <p>Lives: <strong id="lives">3 / 3</strong></p>
+          <p>Current streak: <strong id="streak">0</strong></p>
+          <p>Equal prices count as a correct guess.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="task" id="board">
+      <p class="eyebrow">Task 2</p>
+      <h2>Kanban board</h2>
+
+      <div class="board-controls">
+        <label for="board-search">Search projects</label>
+        <input id="board-search" type="search" placeholder="Type a project or tag">
+
+        <div id="tag-filters">
+          <button class="filter-button active" data-tag="all">All</button>
+          <button class="filter-button" data-tag="brand">Brand</button>
+          <button class="filter-button" data-tag="digital">Digital</button>
+          <button class="filter-button" data-tag="space">Space</button>
+        </div>
+      </div>
+
+      <p id="board-summary">10 projects / 3 in progress</p>
+      <p id="board-total">Completed value: $0k</p>
+      <div class="progress-track"><span id="board-progress"></span></div>
+
+      <div class="kanban-board" id="kanban-board"></div>
+      <p class="board-message" id="board-message" aria-live="polite"></p>
+      <p class="empty-message hidden" id="board-empty">No projects found.</p>
+    </section>
+
+    <section class="task" id="creator">
+      <p class="eyebrow">Task 3</p>
+      <h2>Character Creator</h2>
+      <p>Fill in the form. The preview changes while you type.</p>
+
+      <div class="creator-layout">
+        <form id="character-form" novalidate>
+          <label for="character-name">Character name</label>
+          <input id="character-name" name="name" type="text" placeholder="Nova Reed" minlength="2" required>
+          <p class="field-error" id="name-error"></p>
+
+          <label for="character-class">Class</label>
+          <select id="character-class" name="class" required>
+            <option value="">Choose a class</option>
+            <option value="explorer">Explorer</option>
+            <option value="engineer">Engineer</option>
+            <option value="cartographer">Cartographer</option>
+          </select>
+          <p class="field-error" id="class-error"></p>
+
+          <fieldset>
+            <legend>Skills: <span id="points-left">20 points left</span></legend>
+
+            <label for="skill-observation">Observation</label>
+            <input id="skill-observation" name="observation" type="number" min="1" max="10" value="5" required>
+
+            <label for="skill-craft">Craft</label>
+            <input id="skill-craft" name="craft" type="number" min="1" max="10" value="5" required>
+
+            <label for="skill-navigation">Navigation</label>
+            <input id="skill-navigation" name="navigation" type="number" min="1" max="10" value="5" required>
+
+            <label for="skill-empathy">Empathy</label>
+            <input id="skill-empathy" name="empathy" type="number" min="1" max="10" value="5" required>
+
+            <p class="field-error" id="skills-error"></p>
+          </fieldset>
+
+          <label class="terms-label">
+            <input id="character-terms" type="checkbox" required>
+            I accept the field safety protocol.
+          </label>
+          <p class="field-error" id="terms-error"></p>
+
+          <button type="submit">Create character</button>
+          <p class="form-errors" id="form-errors" role="alert" aria-live="polite"></p>
+        </form>
+
+        <section class="character-preview" id="character-preview">
+          <p>Preview</p>
+          <div class="avatar" id="preview-avatar">N</div>
+          <p id="preview-class">UNASSIGNED</p>
+          <h3 id="preview-name">Unnamed explorer</h3>
+          <div id="preview-skills"></div>
+          <p>Status: <strong id="preview-status">DRAFT</strong></p>
+        </section>
+      </div>
+      <section class="final-result hidden" id="final-result" aria-live="polite">
+        <h3>Created character</h3>
+        <p id="final-result-text"></p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">IT-2512 / GULYAYEV MIKHAIL</footer>
+</body>
+</html>
